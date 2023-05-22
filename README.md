@@ -8,6 +8,7 @@ Used library:
 * python-dotenv
 * pytest
 * python-telegram-bot
+* requests
 
 Ever got fustrated when you're talking to friends about a particular song/artist/album?
 Well, with Sharify you can be assured that your friends know what you're talking about
