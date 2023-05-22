@@ -34,18 +34,15 @@ def get_auth_header(token):
 def get_artist_id(token, name):
     url = 'https://api.spotify.com/v1/search'
     headers = get_auth_header(token)
-    query = f'?q={name}&type=artist&limit=1'
-
-    query_url = url + query
-    result = get(query_url, headers=headers)
-    json_result = json.loads(result.content)['artists']['items'][0]['id']
-
-    if len(json_result) == 0:
+    try:
+        query = f'?q={name}&type=artist&limit=1'
+        query_url = url + query
+        result = get(query_url, headers=headers)
+        json_result = json.loads(result.content)['artists']['items'][0]['id']
+        return json_result
+    except:
         print(f'No artist found with the name {name}')
-        return None
-    
-    # print(json_result)
-    return json_result
+        return f'not found'
 
 def get_artist_link(token, id):
     url = f'https://api.spotify.com/v1/artists/{id}'
@@ -57,18 +54,15 @@ def get_artist_link(token, id):
 def get_song_id(token, name):
     url = 'https://api.spotify.com/v1/search'
     headers = get_auth_header(token)
-    query = f'?q={name}&type=track&limit=1'
-
-    query_url = url + query
-    result = get(query_url, headers=headers)
-    json_result = json.loads(result.content)['tracks']['items'][0]['id']
-
-    if len(json_result) == 0:
+    try:
+        query = f'?q={name}&type=track&limit=1'
+        query_url = url + query
+        result = get(query_url, headers=headers)
+        json_result = json.loads(result.content)['tracks']['items'][0]['id']
+        return json_result
+    except:
         print(f'No song found with the name {name}')
-        return None
-    
-    # print(json_result)
-    return json_result
+        return f'not found'
 
 def get_song_link(token, id):
     url = f'https://api.spotify.com/v1/tracks/{id}'
@@ -80,19 +74,16 @@ def get_song_link(token, id):
 def get_album_id(token, name):
     url = 'https://api.spotify.com/v1/search'
     headers = get_auth_header(token)
-    query = f'?q={name}&type=album&limit=1'
-
-    query_url = url + query
-    result = get(query_url, headers=headers)
-    json_result = json.loads(result.content)['albums']['items'][0]['id']
-
-    if len(json_result) == 0:
+    try:
+        query = f'?q={name}&type=album&limit=1'
+        query_url = url + query
+        result = get(query_url, headers=headers)
+        json_result = json.loads(result.content)['albums']['items'][0]['id']
+        return json_result
+    except:
         print(f'No album found with the name {name}')
-        return None
+        return f'not found'
     
-    # print(json_result)
-    return json_result
-
 def get_album_link(token, id):
     url = f'https://api.spotify.com/v1/albums/{id}'
     headers = get_auth_header(token)
@@ -100,13 +91,10 @@ def get_album_link(token, id):
     json_result = json.loads(result.content)['external_urls']['spotify']
     return json_result
 
-token = get_token()
-# id = get_artist_id(token, 'acdc')
-# print(get_artist_link(token, id))
-# id = get_track_id(token,'roar')
-# print(get_track_link(token,id))
-# id = get_album_id(token,'lion')
-# print(get_album_link(token,id))
+# token = get_token()
+# id = get_artist_id(token, 'ac3wrikesdksfskfksgvfdkgdtekigtdeidc')
+# print(id)
+
 
 if __name__ == "__main__":
     main()

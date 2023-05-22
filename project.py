@@ -44,11 +44,11 @@ def handle_response(text: str) -> str:
 
         # get artist id
         artist_id = api.get_artist_id(token, artist_name)
-
+        
         # validation check
-        if artist_id == None:
+        if artist_id == 'not found':
             return f'Sorry we couldn\'t find the artist you were looking for!'
-
+        
         # get artist link
         artist_link = api.get_artist_link(token, artist_id)
 
@@ -62,7 +62,7 @@ def handle_response(text: str) -> str:
         song_id = api.get_song_id(token, song_name)
 
         # validation check
-        if song_id == None:
+        if song_id == 'not found':
             return f'Sorry we couldn\'t find the song you were looking for!'
         
         # get song link
@@ -78,7 +78,7 @@ def handle_response(text: str) -> str:
         album_id = api.get_album_id(token, album_name)
 
         # validation check
-        if album_id == None:
+        if album_id == 'not found':
             return f'Sorry we couldn\'t find the album you were looking for!'
         
         # get album link
