@@ -1,5 +1,5 @@
 # Sharify
-#### Video Demo:  <[URL HERE]()>
+#### Video Demo:  <[URL HERE](https://youtu.be/_nkeONiXHMU)>
 
 ### Description:
 Hello there! My name is Matthew, I am from Singapore and I have created Sharify!
